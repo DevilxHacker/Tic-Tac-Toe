@@ -41,7 +41,7 @@ function Grid() {
           </h1>
         </>
       )}
-      {draw == 5 && (
+      {(draw == 5 && !winner) && (
         <>
           <h1 className="m-3 text-3xl font-bold text-center text-black ">
             Oh! It's a Draw
@@ -62,7 +62,7 @@ function Grid() {
           );
         })}
       </div>
-      {winner && (
+      {(winner || draw==5) && (
         <>
           <Button
             text="Reset"
@@ -72,16 +72,7 @@ function Grid() {
           />
         </>
       )}
-      {draw == 5 && (
-        <>
-          <Button
-            text="Reset"
-            buttonType="Button"
-            styleType="Fifth"
-            onClickHandler={reset}
-          />
-        </>
-      )}
+      
     </>
   );
 }
